@@ -1,0 +1,51 @@
+body {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    height: 400px;
+    width: 300px;
+}
+
+.result img {
+    object-fit: cover;
+    height: 100;
+    width: 100%;
+}
+
+.label {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 50px;
+    height: 25px;
+    width: 50px;
+}
+
+.fa-moon {
+    color: grey;
+}
+
+.fas fa-sun {
+    color: yellow;
+}
+
+body.dark {
+    background-color: grey;
+}
