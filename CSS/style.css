@@ -18,10 +18,6 @@ body {
     justify-content: right;
 }
 
-/* .catName {
-    
-} */
-
 .results {
     display: flex;
     align-items: center;
