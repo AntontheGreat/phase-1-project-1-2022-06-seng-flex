@@ -1,20 +1,21 @@
 const catPhoto = document.getElementById("cat-photo");
-let cats = [];
+let list = [];
 document.addEventListener("DOMContentLoaded", () => {
-    fetchRandomCatPic();
+    fetchCatPic();
     nameCat();
-    toggleDarkMode();
     getNextCat();
+    toggleDarkMode();
  });
 
-
-const fetchRandomCatPic = () => {
+const fetchCatPic = () => {
     fetch("https://api.thecatapi.com/v1/images/search")
         .then(resp => resp.json())
         .then(data => {
-            catPhoto.innerHTML = `<img src="${data[0].url}"/>`
-            cats = Object.keys(data[0].url)
-            showCatInList(cats);
+            data.forEach(url => {
+                const img = document.createElement("img")
+                img.src = data[0].url
+                catPhoto.append(img)
+            })
         })
 };
 
@@ -31,24 +32,8 @@ function nameCat() {
 
 function getNextCat() {
     const input = document.getElementById("getNextCat");
-    input.addEventListener("click", fetchRandomCatPic);
+    input.addEventListener("click", fetchCatPic);
 };
-
-function showCatInList(cat) {
-    const catCollection = document.getElementById("listContainer");
-    const div = document.createElement("div");
-    div.classList.add("card")
-
-    const h2 = document.createElement("h2");
-    h2.textContent = cat.name
-
-    const img = document.createElement("img")
-    img.src = catPhoto
-    img.classList.add("catAvatar")
-
-    div.append(h2, img)
-    catCollection.append(div)
-}
 
 function toggleDarkMode() {
     const checkbox = document.getElementById("checkbox");
