@@ -1,5 +1,5 @@
 const catPhoto = document.getElementById("cat-photo");
-let list = [];
+const catList = document.getElementById("list")
 document.addEventListener("DOMContentLoaded", () => {
     fetchCatPic();
     nameCat();
